@@ -1,16 +1,21 @@
-// export default function practice(){
-//   return(
-//     <div className=" h-10 w-10 bg-black">
-//       <h1 className="  text-red-700"> React Practice </h1>
-//     </div>
-//   )
-// }// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Users from "./pages/Users";
+import Reports from "./pages/Reports";
+import Layout from "./Components/Layout";
 
-
-export default function App() {
+function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/reports" element={<Reports />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
 }
+
+export default App;
